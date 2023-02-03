@@ -12,7 +12,7 @@ public class Evento {
 	
 	
 	public Evento(String titolo, String stringData, int numeroPosti, int numeroPostiPrenotati) {
-		if(numeroPostiPrenotati > 0) {
+		if(numeroPostiPrenotati > 0 && numeroPosti > numeroPostiPrenotati) {
 		this.titolo = titolo;
 		try {
 		this.data = controlloData(stringData);
@@ -61,10 +61,10 @@ public class Evento {
 	
 
 	
-	public boolean prenota() throws Exception{
+	public boolean prenota(int i) throws Exception{
 		
-		if(this.numeroPosti > this.numeroPostiPrenotati) {
-			++numeroPostiPrenotati;
+		if(this.numeroPosti > this.numeroPostiPrenotati + i) {
+			numeroPostiPrenotati = numeroPostiPrenotati + i;
 			return true;
 		}
 		else
@@ -72,9 +72,9 @@ public class Evento {
 		
 	}
 	
-	public boolean disdici() throws Exception{
-		if(this.numeroPostiPrenotati > 0) {
-			--numeroPostiPrenotati;
+	public boolean disdici(int i) throws Exception{
+		if(this.numeroPostiPrenotati - i > 0) {
+			numeroPostiPrenotati = numeroPostiPrenotati - i;
 			return true;
 		}
 		else
@@ -88,7 +88,14 @@ public class Evento {
 				"\n Data evento: " +data+
 				"\n Titolo: " +titolo;
 	}
+	
+	
+	public int postiDisponibili(int postiDisponibili, int postiPrenotati) {
+		return postiDisponibili - postiPrenotati;
+	}
 
+	
+	
 }
 
 
