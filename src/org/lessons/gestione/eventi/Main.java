@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) throws Exception {
+		
 		System.out.println("Inserisci un evento con Titolo, data, numero di posti e numero di posti prenotati");
 		Scanner scanner1 = new Scanner(System.in);
 		String titolo = scanner1.nextLine();
@@ -42,22 +43,13 @@ public class Main {
 		System.out.println("L'evento corrente è: "+evento);
 		System.out.println("Il numero di posti disponibili è: " +evento.postiDisponibili(evento.getNumeroPosti(), evento.getNumeroPostiPrenotati()));
 		
+		
+	
 	}
+	
 
 }
 
 
 
-/*
- * MILESTONE 2
-1. Creare una classe Main di test, in cui si chiede all’utente di inserire un nuovo evento
-con tutti i parametri.
-2. Dopo che l’evento è stato istanziato, chiedere all’utente se e quante prenotazioni
-vuole fare e provare ad effettuarle, implementando opportuni controlli e gestendo
-eventuali eccezioni.
-3. Stampare a video il numero di posti prenotati e quelli disponibili
-4. Chiedere all’utente se e quanti posti vuole disdire
-5. Provare ad effettuare le disdette, implementando opportuni controlli e gestendo
-eventuali eccezioni
-6. Stampare a video il numero di posti prenotati e quelli disponibili
- * */
+
